@@ -207,10 +207,7 @@ deploy-community-managed:
 	kubectl apply -f deploy/common
 	kubectl -n multicluster-operators delete secret appmgr-hub-kubeconfig --ignore-not-found
 	kubectl -n multicluster-operators create secret generic appmgr-hub-kubeconfig --from-file=kubeconfig=/tmp/kubeconfig
-	sed -i 's/<managed cluster name>/$(MANAGED_CLUSTER_NAME)/g' deploy/managed/operator.yaml
-	sed -i 's/<managed cluster namespace>/$(MANAGED_CLUSTER_NAME)/g' deploy/managed/operator.yaml
-	kubectl apply -f deploy/managed
-
+	sed -e "s/<managed cluster name>/$(MANAGED_CLUSTER_NAME)/g" -e "s/<managed cluster namespace>/$(MANAGED_CLUSTER_NAME)/g" deploy/managed/operator.yaml | kubectl apply -f -
 
 ############################################################
 # run the e2e on a local kind
