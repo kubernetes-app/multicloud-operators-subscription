@@ -44,7 +44,7 @@ spec:
           value: multicluster-operators-application
         - name: OPERATOR_NAME
           value: clusternet-placementrule-operator
-        image: blackholex/clusternet-placementrule-operator:latest
+        image: quay.io/danielxlee/clusternet-placementrule-operator:latest
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
