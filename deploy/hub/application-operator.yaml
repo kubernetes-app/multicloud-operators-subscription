@@ -46,18 +46,18 @@ spec:
           value: clusternet-placementrule-operator
         image: quay.io/danielxlee/clusternet-placementrule-operator:latest
         imagePullPolicy: Always
-        # livenessProbe:
-        #   httpGet:
-        #     path: /healthz
-        #     port: 8081
-        #   initialDelaySeconds: 15
-        #   periodSeconds: 20
-        # readinessProbe:
-        #   httpGet:
-        #     path: /readyz
-        #     port: 8081
-        #   initialDelaySeconds: 5
-        #   periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8081
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 10
         resources:
           limits:
             cpu: 100m
