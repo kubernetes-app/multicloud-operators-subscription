@@ -88,7 +88,7 @@ spec:
           value: multicluster-operators-application
         - name: OPERATOR_NAME
           value: multicluster-operators-deployable
-        image: quay.io/open-cluster-management/multicluster-operators-deployable:latest
+        image: quay.io/danielxlee/multicluster-operators-deployable:latest
         imagePullPolicy: Always
         livenessProbe:
           exec:
